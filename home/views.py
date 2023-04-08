@@ -10,3 +10,7 @@ def send_email(request):
 def home(request):
     todos= Todo.objects.all()
     return render(request ,'home.html',{'todos':todos})
+
+def detail(request, todo_id):
+    todo = Todo.objects.get(id=todo_id)
+    return  render(request, 'detail.html',{'todo':todo})
